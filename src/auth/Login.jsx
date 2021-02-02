@@ -4,6 +4,7 @@ import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
+import APIURL from '../helpers/environment'
 
 const useStyles = makeStyles(() =>
   createStyles({ 
@@ -56,7 +57,7 @@ const Login = (props) => {
     const handleSubmit = (e) => {
         
         e.preventDefault();
-        fetch('http://localhost:3000/user/login', {
+        fetch(`${APIURL}/user/login`, {
             method: 'POST',
             body: JSON.stringify({user: {username: username, password: password}}),
             headers: new Headers({
