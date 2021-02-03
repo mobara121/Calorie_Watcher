@@ -6,7 +6,7 @@ switch (window.location.hostname) {
         APIURL = 'http://localhost:3000';
         break;
     case ' caloriewatcher-app.herokuapp.com':
-        APIURL = ' https://caloriewatcher-app.herokuapp.com'
+        APIURL = ' https://caloriewatcher.herokuapp.com'
 }
 
 
