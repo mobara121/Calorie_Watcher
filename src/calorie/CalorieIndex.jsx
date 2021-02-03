@@ -3,7 +3,7 @@ import CalorieCheck from './CalorieCheck';
 import FoodChoice from './FoodChoice';
 // import FoodSearch from './FoodSearch';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
-import APIURL from '../helpers/environmentt';
+import APIURL from '../helpers/environment';
 
 
 const useStyles = makeStyles(() =>
