@@ -7,7 +7,8 @@ const useStyles = makeStyles(() =>
   createStyles({ 
     container:{
       minHeight:'20px',
-      backgroundColor: '#000'
+      backgroundColor: '#000',
+      marginBottom: 0
     },
     brand:{
         color: 'rgb(153, 153, 153)',

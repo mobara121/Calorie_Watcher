@@ -8,7 +8,7 @@ const useStyles = makeStyles(() =>
   createStyles({ 
      
     container:{
-        minHeight: '90vh',
+        minHeight: '100vh',
         width: 'auto',
         background: `url(${Image})`,
         backgroundRepeat: 'no-repeat',
