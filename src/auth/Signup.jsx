@@ -27,13 +27,15 @@ const useStyles = makeStyles(() =>
       }     
     },
     iconbtn:{
-        fontSize:"1.2rem",
+        // fontSize:"1.2rem",
         padding: '0',
         color:"#fff",
         fontWeight: '600'
     },
     label:{
-        color:'#fff'
+        color:'#fff',
+        fontSize:'2rem',
+        marginBottom:0
     },
     alert:{
         color:'#c00808',
@@ -56,7 +58,7 @@ const Signup = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if(username.length > 0 && password.length > 0){
+        if(username.length > 5 && password.length > 5){
             fetch(`${APIURL}/user/signup`, {
                 method: 'POST',
                 body: JSON.stringify({user: {username: username, password: password}}),
@@ -67,7 +69,9 @@ const Signup = (props) => {
             ).then((data)=> {
                 props.updateToken(data.sessionToken)
             })
-        } else{
+        } else if(username.length >0 || password.length > 0 ) {
+            setAlert('Username and Password both require more than 5 letters.')
+        }else{
             //alert('username and password are required')
             setAlert('Username and Password are both required.')
         }        
@@ -93,7 +97,7 @@ const Signup = (props) => {
                     <Input onChange={(e) => setPassword(e.target.value)} name="password" value={password}/> 
                 </FormGroup>
                 <p className={classes.alert}>{alert}</p>
-                <Button type="submit">Signup</Button>
+                <button type="submit" style={{backgroundColor:'red', borderRadius:'5px'}}>Signup</button>
             </Form>
             </Collapse>
             </div>

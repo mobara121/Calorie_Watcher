@@ -7,6 +7,7 @@ const useStyles = makeStyles(() =>
   createStyles({ 
     container:{
       minHeight:'20px',
+      lineHeight: '20px',
       backgroundColor: '#000',
       marginBottom: 0
     },
@@ -28,11 +29,11 @@ const Sitebar =(props) => {
     return(
         <Navbar className={classes.container} color="faded" light expand="md">
             <NavbarBrand href="/"><span className={classes.brand}>Calorie Watcher</span></NavbarBrand>
-                <Nav className="ml-auto" navbar>
-                    <NavItem>
-                        <Button onClick={props.clickLogout}>Logout</Button> {/*4*/}
-                    </NavItem>
-                </Nav>
+                <div style={{position:'fixed', right: 30, marginRight:'1vw'}}>
+                    <div style={{margin:'7px auto'}}>
+                        <button style={{height:'4vh', borderRadius:'5px', backgroundColor:'red', border: '1px solid red', color:'#fff'}} onClick={props.clickLogout}>Logout</button> {/*4*/}
+                    </div>
+                </div>
 
         </Navbar>
     )

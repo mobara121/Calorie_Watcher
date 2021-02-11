@@ -27,13 +27,15 @@ const useStyles = makeStyles(() =>
         }
       },
       iconbtn:{
-        fontSize:"1.2rem",
+        // fontSize:"1.2rem",
         padding: '0',
         color:"#fff",
         fontWeight: '600'
     },
     label:{
-        color:'#fff',       
+        color:'#fff',
+        fontSize:'2rem',
+        marginBottom:0       
     },
     alert:{
         color:'#c00808',
@@ -92,10 +94,10 @@ const Login = (props) => {
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="password">Password</Label>
-                    <Input onChange={e => setPassword(e.target.value)} name="password" value={password}></Input>
+                    <Input onChange={e => setPassword(e.target.value)} type="password" name="password" value={password}></Input>
                 </FormGroup>
                 <p className={classes.alert}>{alert}</p>
-                <Button className={classes.btn} type="submit">Login</Button>
+                <button className={classes.btn} type="submit" style={{backgroundColor:'red', borderRadius:'5px'}}>Login</button>
             </Form>
             </Collapse>
             </div>

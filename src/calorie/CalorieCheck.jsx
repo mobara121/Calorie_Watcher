@@ -31,14 +31,14 @@ const useStyles = makeStyles(() =>
         to:{opacity: 1, transform: 'rotateX(0deg)'}
     },
     form3:{
-        opacity: '0', rotateX: '-90deg', animation: '$form3 1s ease-out 1.2s forwards'
+        marginBottom: '30px', opacity: '0', rotateX: '-90deg', animation: '$form3 1s ease-out 1.2s forwards'
     },
     '@keyframes form3':{
         from:{opacity: 0, transform: 'rotateX(-90deg)'},
         to:{opacity: 1, transform: 'rotateX(0deg)'}
     },
     btn:{
-        opacity: '0', rotateX: '-90deg', animation: '$btn 1s ease-out 1.25s forwards'
+        color: '#fff', backgroundColor: 'red', borderRadius: '5px', border: '1px solid red', height: '35px',  opacity: '0', rotateX: '-90deg', animation: '$btn 1s ease-out 1.25s forwards', '&:hover':{backgroundColor:'rgba(246, 71, 71, 0.5)', color:'#000'}
     },
     '@keyframes btn':{
         from:{opacity: 0, transform: 'rotateX(-90deg)'},
@@ -148,7 +148,7 @@ const CalorieCheck = (props) => {
                         <option>active</option>
                     </Input>
                 </FormGroup>
-                <Button className={classes.btn} type="search">Calorie Check!</Button>
+                <button className={classes.btn} type="search">Calorie Check!</button>
             </Form>
             <div>
                 <Card className={classes.card}>

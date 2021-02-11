@@ -74,6 +74,7 @@ const useStyles = makeStyles(() =>
         margin: '10px, 10px, 10px, 0',
         padding: '0 30px',
         height: '40px',
+        color: '#fff', backgroundColor: 'red', borderRadius: '5px', border: '1px solid red', '&:hover':{backgroundColor:'rgba(246, 71, 71, 0.5)', color:'#000'}
       },
       calspan:{
         lineHeight:'30px'
@@ -90,10 +91,11 @@ const FoodChoice = (props) => {
     const [foods, setFoods] = useState([]);
     const [group, setGroup] = useState('');
     const [calories, setCalories] = useState('');
+    const [filter, setFilter] = useState('');
     const classes = useStyles();
   
   useEffect(()=>{ 
-    setTimeout(()=>{ 
+    // setTimeout(()=>{ 
     const fetchFood = () => {
         fetch(`${APIURL}/food/get/${group}/${calories}`, {
             method: 'GET',
@@ -103,22 +105,22 @@ const FoodChoice = (props) => {
             })
         }).then((res)=> res.json())     
           .then((foods) => {
-           debugger;
+          //  debugger;
             console.log(foods)
             return setFoods(foods)
         })        
         .catch(err => console.log(err))
     };
     fetchFood();
-  }, 4000);
+  // }, 4000);
   // clearTimeout(timer)
   }, [group, calories, props.token])  
     
   const getFilter = e =>{
     e.preventDefault();
     setGroup(group);
-    setCalories(calories);
-
+    setCalories(filter);
+    setFilter(''); 
   }
 
     return(
@@ -138,19 +140,19 @@ const FoodChoice = (props) => {
                 <div className={classes.formgroup}>
                   <label className={classes.label} htmlFor="calorie">Calorie</label>
                   <div className={classes.calinput}>
-                    <Input className={classes.input2} type="integer" value={calories} onChange={e=>setCalories(e.target.value)}>
+                    <Input className={classes.input2} type="integer" value={filter} onChange={e=>setFilter(e.target.value)}>
                     </Input>
                       <span className={classes.calspan}>cal.</span>
                     </div>
                 </div>
                 <div className={classes.btncontainer}>
-                  <Button className={classes.btn} type="submit">Search</Button>
+                  <button className={classes.btn} type="submit">Search</button>
                 </div>            
             </form>
             <div>
                              
               {foods && foods.map((food, id) =>{  
-                debugger;
+                // debugger;
                 return(                
                 <FoodChoiceResult
                   key={food.id}
